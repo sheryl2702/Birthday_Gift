@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open When You're Exhausted ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 15% 20%, #f9dce8 0%, transparent 28%),
+                radial-gradient(circle at 85% 80%, #dcebdc 0%, transparent 30%),
+                #f8efe4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 20px;
+            color: #5a4035;
+        }
+
+        /* Back button */
+        .back {
+            position: fixed;
+            top: 25px;
+            left: 30px;
+            text-decoration: none;
+            color: #7b5145;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            background: rgba(255,255,255,0.65);
+            padding: 10px 17px;
+            border-radius: 20px;
+            box-shadow: 0 3px 12px rgba(90,60,40,0.1);
+            transition: 0.2s;
+        }
+
+        .back:hover {
+            transform: translateX(-3px);
+            background: white;
+        }
+
+        /* Paper */
+        .paper {
+            position: relative;
+            width: 760px;
+            min-height: 900px;
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(120, 90, 60, 0.025) 0px,
+                    rgba(120, 90, 60, 0.025) 1px,
+                    transparent 1px,
+                    transparent 5px
+                ),
+                #fffaf0;
+
+            padding: 70px 85px 80px;
+            border-radius: 4px;
+
+            box-shadow:
+                0 20px 45px rgba(90, 60, 40, 0.18),
+                0 3px 8px rgba(90, 60, 40, 0.08);
+
+            transform: rotate(-0.3deg);
+        }
+
+        /* Decorative flowers */
+        .flower {
+            position: absolute;
+            font-size: 32px;
+            opacity: 0.65;
+        }
+
+        .flower.one {
+            top: 22px;
+            left: 28px;
+            color: #d98ba8;
+        }
+
+        .flower.two {
+            top: 30px;
+            right: 30px;
+            color: #91ae82;
+        }
+
+        .flower.three {
+            bottom: 28px;
+            left: 32px;
+            color: #e0aa68;
+        }
+
+        .flower.four {
+            bottom: 25px;
+            right: 32px;
+            color: #c68b9e;
+        }
+
+        /* Heading */
+        .title {
+            text-align: center;
+            margin-bottom: 38px;
+        }
+
+        .title .small {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #a27a6c;
+            margin-bottom: 8px;
+        }
+
+        .title h1 {
+            margin: 0;
+            font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive;
+            font-size: 31px;
+            color: #70483d;
+            font-weight: 600;
+        }
+
+        .date {
+            text-align: right;
+            font-family: "Segoe Print", "Bradley Hand", cursive;
+            font-size: 13px;
+            color: #9b8177;
+            margin-bottom: 35px;
+        }
+
+        /* Letter writing */
+        .letter {
+            font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive;
+            font-size: 18px;
+            line-height: 1.9;
+        }
+
+        .letter p {
+            margin: 0 0 22px;
+        }
+
+        .hello {
+            font-size: 22px;
+            color: #70483d;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #795043;
+        }
+
+        .quote {
+            margin: 30px 20px;
+            padding: 18px 25px;
+            border-left: 3px solid #d5a0a9;
+            background: rgba(245, 222, 224, 0.35);
+            font-style: italic;
+            color: #765b54;
+        }
+
+        .song-note {
+            text-align: center;
+            font-size: 15px;
+            color: #9a756c;
+            margin: 25px 0;
+        }
+
+        .final-note {
+            margin-top: 35px;
+            text-align: center;
+            font-size: 20px;
+            color: #70483d;
+            font-weight: bold;
+        }
+
+        /* Signature */
+        .signature {
+            margin-top: 45px;
+            font-size: 19px;
+        }
+
+        .signature strong {
+            font-size: 22px;
+        }
+
+        /* Mobile */
+        @media (max-width: 800px) {
+            body {
+                padding: 70px 12px 30px;
+            }
+
+            .paper {
+                width: 100%;
+                padding: 55px 35px 60px;
+            }
+
+            .letter {
+                font-size: 16px;
+                line-height: 1.8;
+            }
+
+            .title h1 {
+                font-size: 25px;
+            }
+
+            .back {
+                left: 15px;
+                top: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="letters.html" class="back">← Back to letters</a>
+
+    <div class="paper">
+
+        <!-- Decorative flowers -->
+        <div class="flower one">✿</div>
+        <div class="flower two">❀</div>
+        <div class="flower three">✿</div>
+        <div class="flower four">❀</div>
+
+        <div class="title">
+            <div class="small">Open When...</div>
+            <h1>You're Exhausted / Overwhelmed 🌷</h1>
+        </div>
+
+
+
+        <div class="letter">
+
+            <p class="hello">
+                Hellloooo Akkaaaa ❤️
+            </p>
+
+            <p>
+                If you're reading this, I'm guessing you're having one of those days
+                where everything feels overwhelming, and you need someone to remind
+                you that you can get through it.
+            </p>
+
+            <p>
+                Sooooo, here I am. ❤️
+            </p>
+
+            <p>
+                You are a <span class="highlight">"Wonder Woman"</span> for real.
+                I have always admired the way you handle everything. Even when
+                things are not actually easy, you somehow make them look easy,
+                and that takes another level of energy.
+            </p>
+
+            <p>
+                You make it look so effortless that people don't always realise
+                how much effort you put in just to stay calm and handle everything
+                so maturely. Everyone trusts you to manage any situation beautifully,
+                and you absolutely do.
+            </p>
+
+            <p>
+                But even the best of the best people need a break sometimes.
+                They need to stop, breathe, and just be.
+            </p>
+
+            <p>
+                So whenever you feel exhausted, or you're simply too tired to
+                even pray, please don't feel bad about it. Being good at handling
+                things doesn't mean that things are easy for you.
+            </p>
+
+            <div class="quote">
+                "The parts we can't tell, we carry them well.
+                But that doesn't mean they're not heavy."
+            </div>
+
+            <p>
+                Maybe people don't always understand what you're carrying,
+                but I do. And whenever the world feels too heavy to carry,
+                you can always text me.
+            </p>
+
+            <p>
+                I will always be ready to listen to all your worries, random
+                thoughts, complaints, and overwhelming thoughts with my
+                professional <span class="highlight">"Hmmss"</span> like
+                Marudhu from <i>Modha Raatri</i>. 😂❤️
+            </p>
+
+            <p>
+                So just remember to breathe.
+            </p>
+
+            <p>
+                You don't have to prove anything to anyone.
+            </p>
+
+            <p>
+                We have the most amazing Writer writing our story, and He will
+                do His miracles in <span class="highlight">HIS TIME</span>. ❤️
+            </p>
+
+            <p>
+                And if you're too tired to pray, it's okay.
+                I'll pray from my side for you.
+            </p>
+
+            <p>
+                You are an <span class="highlight">AMAZING PERSON</span>.
+                You have come soooo far.
+            </p>
+
+            <p>
+                You moved away from home, you're working double shifts,
+                studying, managing so many responsibilities, and yet you
+                never miss an opportunity to make us smile with your mischief.
+            </p>
+
+            <p>
+                That is such an amazing talent of yours...
+                but I know sometimes it can also become a burden.
+            </p>
+
+            <p>
+                I'm pretty sure there are times when you put on a smile during
+                our video calls while carrying a lot more than you let us see.
+            </p>
+
+            <p>
+                I just want you to know that you don't always have to hide it
+                from me.
+            </p>
+
+            <p>
+                I'm always here. ❤️
+            </p>
+
+            <div class="song-note">
+                And whenever you feel too overwhelmed, remember the little
+                reminder from <i>OK Not To Be OK</i> — you don't have to
+                go through those moments alone. ❤️
+            </div>
+
+            <p>
+                So here's your reminder:
+            </p>
+
+            <p class="final-note">
+                If you're tired, stop.
+                <br>
+                Stop everything.
+                <br>
+                Take a break.
+            </p>
+
+            <p>
+                Sleep. Cry. Sit quietly. Do absolutely nothing if that's what
+                you need.
+            </p>
+
+            <p>
+                And then, when you're ready, start again.
+            </p>
+
+            <p>
+                You don't have to take the shortest break or the quickest break.
+                It doesn't matter how long it takes.
+            </p>
+
+            <p>
+                And if you don't know what to do...
+            </p>
+
+            <p class="final-note">
+                TEXT ME.
+            </p>
+
+            <p>
+                (Because I always have my phone on mute 😭😂)
+            </p>
+
+            <p>
+                But seriously, Akka, you don't have to carry everything alone.
+            </p>
+
+            <p>
+                You can always come home to us — even if it's just through
+                a phone call, a random text, or one of our stupid conversations.
+            </p>
+
+            <p>
+                And if you are too exhausted to remind yourself that everything
+                will be okay...
+            </p>
+
+            <p class="final-note">
+                I'll remind you. ❤️
+            </p>
+
+            <div class="signature">
+                With all my love,<br>
+                <strong>Sheryl ♡</strong>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

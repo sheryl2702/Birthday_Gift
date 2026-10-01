@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Open When You Miss Home ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background:
+                radial-gradient(circle at 10% 15%, #f7dce6 0%, transparent 28%),
+                radial-gradient(circle at 90% 85%, #dce9d7 0%, transparent 30%),
+                #f7eee2;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 60px 20px;
+
+            color: #5a4035;
+        }
+
+        /* BACK BUTTON */
+
+        .back {
+            position: fixed;
+            top: 25px;
+            left: 30px;
+
+            text-decoration: none;
+
+            color: #7b5145;
+
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+
+            background: rgba(255, 255, 255, 0.7);
+
+            padding: 10px 17px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 3px 12px rgba(90, 60, 40, 0.1);
+
+            transition: 0.2s;
+
+            z-index: 10;
+        }
+
+        .back:hover {
+            transform: translateX(-3px);
+            background: white;
+        }
+
+
+        /* PAPER */
+
+        .paper {
+            position: relative;
+
+            width: 780px;
+            min-height: 1000px;
+
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(120, 90, 60, 0.025) 0px,
+                    rgba(120, 90, 60, 0.025) 1px,
+                    transparent 1px,
+                    transparent 5px
+                ),
+                #fffaf0;
+
+            padding: 65px 85px 80px;
+
+            box-shadow:
+                0 22px 45px rgba(90, 60, 40, 0.18),
+                0 3px 8px rgba(90, 60, 40, 0.08);
+
+            border-radius: 4px;
+
+            transform: rotate(0.2deg);
+        }
+
+
+        /* FLOWERS */
+
+        .flower {
+            position: absolute;
+
+            font-size: 32px;
+
+            opacity: 0.65;
+        }
+
+        .flower.one {
+            top: 22px;
+            left: 28px;
+            color: #d78da8;
+        }
+
+        .flower.two {
+            top: 28px;
+            right: 30px;
+            color: #91aa83;
+        }
+
+        .flower.three {
+            bottom: 28px;
+            left: 32px;
+            color: #dfaa6c;
+        }
+
+        .flower.four {
+            bottom: 25px;
+            right: 32px;
+            color: #c68c9f;
+        }
+
+
+        /* TITLE */
+
+        .small-title {
+            text-align: center;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+
+            letter-spacing: 2.5px;
+
+            text-transform: uppercase;
+
+            color: #aa8275;
+
+            margin-bottom: 8px;
+        }
+
+        .title {
+            text-align: center;
+
+            margin-bottom: 20px;
+        }
+
+        .title h1 {
+            margin: 0;
+
+            font-family:
+                "Segoe Print",
+                "Bradley Hand",
+                "Comic Sans MS",
+                cursive;
+
+            font-size: 31px;
+
+            color: #70483d;
+
+            font-weight: 600;
+        }
+
+
+        /* DATE */
+
+        .date {
+            text-align: right;
+
+            font-family:
+                "Segoe Print",
+                "Bradley Hand",
+                cursive;
+
+            font-size: 13px;
+
+            color: #9b8177;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* LETTER */
+
+        .letter {
+            font-family:
+                "Segoe Print",
+                "Bradley Hand",
+                "Comic Sans MS",
+                cursive;
+
+            font-size: 18px;
+
+            line-height: 1.9;
+        }
+
+        .letter p {
+            margin: 0 0 22px;
+        }
+
+        .hello {
+            font-size: 23px;
+            color: #70483d;
+        }
+
+
+        /* EMPHASIS */
+
+        .bold {
+            font-weight: bold;
+            color: #754d43;
+        }
+
+        .big {
+            font-size: 21px;
+            font-weight: bold;
+            color: #70483d;
+        }
+
+
+        /* MEMORY BOX */
+
+        .memory-box {
+            margin: 30px 10px;
+
+            padding: 24px 28px;
+
+            background: rgba(245, 222, 224, 0.35);
+
+            border-left: 3px solid #d49aaa;
+
+            border-radius: 4px;
+
+            box-shadow: 0 3px 10px rgba(90, 60, 40, 0.05);
+        }
+
+        .memory-box p {
+            margin-bottom: 15px;
+        }
+
+        .memory-box p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* OHANA BOX */
+
+        .ohana {
+            margin: 35px 5px;
+
+            padding: 25px 30px;
+
+            text-align: center;
+
+            background: rgba(231, 239, 224, 0.5);
+
+            border: 1px dashed #a8b89d;
+
+            border-radius: 8px;
+        }
+
+        .ohana-title {
+            font-size: 23px;
+
+            color: #70483d;
+
+            font-weight: bold;
+
+            margin-bottom: 12px;
+        }
+
+        .ohana-text {
+            font-size: 17px;
+
+            color: #765b52;
+        }
+
+
+        /* HOME QUOTE */
+
+        .home-quote {
+            margin: 35px 15px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            font-size: 18px;
+
+            line-height: 1.9;
+
+            color: #795d56;
+
+            background:
+                rgba(250, 235, 219, 0.55);
+
+            border-radius: 8px;
+        }
+
+        .home-quote .home-title {
+            display: block;
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+            color: #70483d;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* FINAL MESSAGE */
+
+        .final {
+            text-align: center;
+
+            margin: 40px 0 30px;
+
+            font-size: 21px;
+
+            color: #70483d;
+
+            font-weight: bold;
+        }
+
+
+        /* SIGNATURE */
+
+        .signature {
+            margin-top: 45px;
+
+            font-size: 19px;
+        }
+
+        .signature strong {
+            font-size: 23px;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            body {
+                padding: 70px 12px 30px;
+            }
+
+            .paper {
+                width: 100%;
+
+                padding:
+                    55px
+                    30px
+                    60px;
+            }
+
+            .letter {
+                font-size: 16px;
+
+                line-height: 1.8;
+            }
+
+            .title h1 {
+                font-size: 25px;
+            }
+
+            .memory-box,
+            .ohana,
+            .home-quote {
+                margin-left: 0;
+                margin-right: 0;
+
+                padding: 20px;
+            }
+
+            .back {
+                left: 15px;
+                top: 15px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- BACK BUTTON -->
+
+    <a href="letters.html" class="back">
+        ← Back to letters
+    </a>
+
+
+    <!-- PAPER -->
+
+    <div class="paper">
+
+
+        <!-- DECORATIVE FLOWERS -->
+
+        <div class="flower one">✿</div>
+        <div class="flower two">❀</div>
+        <div class="flower three">✿</div>
+        <div class="flower four">❀</div>
+
+
+        <!-- TITLE -->
+
+        <div class="small-title">
+            Open When...
+        </div>
+
+        <div class="title">
+            <h1>
+                You Miss Home ❤️
+            </h1>
+        </div>
+
+
+        <!-- LETTER -->
+
+        <div class="letter">
+
+
+            <p class="hello">
+                Hiii Akkaaa ❤️
+            </p>
+
+
+            <p>
+                If you are reading this letter, then you must be
+                missing home.
+            </p>
+
+
+            <p>
+                And let me tell you something...
+                <span class="bold">the home misses you too.</span>
+            </p>
+
+
+            <p>
+                It isn't the same without you here.
+                Every moment we spend at home feels like it has
+                a little missing piece — and that piece is you.
+            </p>
+
+
+            <p>
+                But remember one thing:
+            </p>
+
+
+            <p class="final">
+                Far or near,<br>
+                you are always in our minds. ❤️
+            </p>
+
+
+            <!-- MEMORIES -->
+
+            <div class="memory-box">
+
+                <p>
+                    I miss you a lot too.
+                </p>
+
+                <p>
+                    You made home so much more lively with all
+                    your silly mischiefs.
+                </p>
+
+                <p>
+                    I miss you when I play
+                    <span class="bold">Super Mario Bros</span>,
+                    because seriously...
+                    <span class="bold">
+                        who is Luigi without his Mario? 😭😂
+                    </span>
+                </p>
+
+                <p>
+                    Whenever I go shopping and I don't have anyone
+                    to suggest clothes to me, I miss you.
+                </p>
+
+                <p>
+                    I miss you when I'm watching a movie that
+                    I know you would love.
+                </p>
+
+                <p>
+                    And I miss you extra when one of
+                    our favourite songs plays.
+                </p>
+
+            </div>
+
+
+            <!-- SONG -->
+
+            <div class="home-quote">
+
+                <span class="home-title">
+                    🎵 Our Songs
+                </span>
+
+                <i>
+                    “Unmai kaadhal yaarendral
+Unnai ennai solvenae
+Neeyum naanum poi endraal
+Kadhalai thedi kolvenae”
+                </i>
+
+                <br>
+
+                <i>
+                    — the song that will always remind me of us ❤️
+                </i>
+
+            </div>
+
+
+            <p>
+                But when you miss home, I want you to remember
+                something.
+            </p>
+
+
+            <p class="big">
+                Home is never just a place.
+            </p>
+
+
+            <!-- OHANA -->
+
+            <div class="ohana">
+
+                <div class="ohana-title">
+                    Ohana ❤️
+                </div>
+
+                <div class="ohana-text">
+                    “Ohana means family,
+                    and family means no one gets left behind.”
+                </div>
+
+            </div>
+
+
+            <p>
+                And you know what?
+            </p>
+
+
+            <p class="big">
+                You are my home.
+            </p>
+
+
+            <!-- HOME QUOTE -->
+
+            <div class="home-quote">
+
+                <span class="home-title">
+                    My Home ♡
+                </span>
+
+                <i>
+                    My home won't ever be a place.<br>
+                    My home has the most beautiful face.
+                </i>
+
+                <br><br>
+
+                <i>
+                    My home, you're my home.
+                </i>
+
+                <br><br>
+
+                <i>
+                    You're the one who makes me feel like a child.<br>
+                    You're the one who always makes me smile.
+                </i>
+
+                <br><br>
+
+                <i>
+                    My home, you're my home.
+                </i>
+
+            </div>
+
+
+            <p>
+                So whenever you miss home, don't think about
+                the distance.
+            </p>
+
+
+            <p>
+                Think about all the little things that make
+                this home ours.
+            </p>
+
+
+            <p>
+                The stupid fights.
+                The random conversations.
+                The movie nights.
+                The shopping trips.
+                The songs.
+                The laughter.
+                The silly mischiefs.
+                The ordinary days that somehow became
+                our favourite memories.
+            </p>
+
+
+            <p>
+                All of those things are still here.
+            </p>
+
+
+            <p>
+                And so are we.
+            </p>
+
+
+            <p class="final">
+                Whenever you miss home,<br>
+                call me. ❤️
+            </p>
+
+
+            <p>
+                And I wouldn't mind sitting in silence with you,
+                even for a whole day.
+            </p>
+
+
+            <p>
+                We don't even have to talk.
+            </p>
+
+
+            <p>
+                You can just call me, and I'll be there.
+            </p>
+
+
+            <p>
+                Because sometimes home isn't a house,
+                a city, or a country.
+            </p>
+
+
+            <p class="big">
+                Sometimes home is simply having someone
+                who makes the distance feel a little smaller.
+            </p>
+
+
+            <p>
+                And no matter how far away you are,
+                you will always have that here.
+            </p>
+
+
+            <p class="final">
+                You will always have us.<br>
+                You will always have me. ❤️
+            </p>
+
+
+            <!-- SIGNATURE -->
+
+            <div class="signature">
+
+                With all my love,<br>
+
+                <strong>
+                    Sheryl ♡
+                </strong>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>

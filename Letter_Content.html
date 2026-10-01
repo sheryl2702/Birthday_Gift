@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>For You ♡</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    #f8dfe3,
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 80% 80%,
+                    #f5e4c8,
+                    transparent 30%
+                ),
+
+                #f8eee7;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            font-family: Georgia, serif;
+
+            padding: 40px 20px;
+
+            color: #5e4949;
+
+        }
+
+
+        /* =========================
+           BACK BUTTON
+        ========================= */
+
+        .back {
+
+            position: fixed;
+
+            top: 25px;
+            left: 30px;
+
+            text-decoration: none;
+
+            color: #8c696f;
+
+            font-size: 15px;
+
+            padding: 10px 18px;
+
+            border-radius: 25px;
+
+            background: rgba(255,255,255,.6);
+
+            transition: .3s;
+
+        }
+
+        .back:hover {
+
+            background: white;
+
+            transform: translateX(-3px);
+
+        }
+
+
+        /* =========================
+           PAPER
+        ========================= */
+
+        .paper {
+
+            position: relative;
+
+            width: 760px;
+
+            min-height: 850px;
+
+            background: #fffdf7;
+
+            padding: 80px 90px;
+
+            box-shadow:
+                0 20px 50px rgba(90,60,50,.15);
+
+            border-radius: 3px;
+
+            animation: appear 1s ease;
+
+        }
+
+
+        @keyframes appear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px)
+                    rotate(1deg);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    rotate(0);
+
+            }
+
+        }
+
+
+        /* =========================
+           PAPER TEXTURE
+        ========================= */
+
+        .paper::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: .25;
+
+            background-image:
+                radial-gradient(
+                    rgba(120,90,70,.12)
+                    0.7px,
+                    transparent 0.7px
+                );
+
+            background-size: 7px 7px;
+
+        }
+
+
+        /* =========================
+           CORNER FLOWERS
+        ========================= */
+
+        .flower {
+
+            position: absolute;
+
+            font-size: 38px;
+
+            opacity: .55;
+
+        }
+
+        .flower.top {
+
+            top: 25px;
+            right: 35px;
+
+        }
+
+        .flower.bottom {
+
+            bottom: 25px;
+            left: 35px;
+
+        }
+
+
+        /* =========================
+           LETTER HEADER
+        ========================= */
+
+        .date {
+
+            text-align: right;
+
+            font-size: 14px;
+
+            color: #a48484;
+
+            margin-bottom: 55px;
+
+        }
+
+
+        .greeting {
+
+            font-size: 28px;
+
+            font-style: italic;
+
+            color: #76565c;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        /* =========================
+           LETTER CONTENT
+        ========================= */
+
+        .letter-content {
+
+            font-family:
+                "Segoe Print",
+                "Bradley Hand",
+                "Comic Sans MS",
+                cursive;
+
+            font-size: 19px;
+
+            line-height: 2;
+
+            color: #5e4b4b;
+
+        }
+
+
+        .letter-content p {
+
+            margin-bottom: 25px;
+
+        }
+
+
+        /* =========================
+           SIGNATURE
+        ========================= */
+
+        .signature {
+
+            margin-top: 50px;
+
+            font-family:
+                "Segoe Print",
+                "Bradley Hand",
+                cursive;
+
+            font-size: 21px;
+
+            font-style: italic;
+
+            color: #76565c;
+
+            text-align: right;
+
+        }
+
+
+        .tiny-heart {
+
+            color: #c77f8c;
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media(max-width: 800px) {
+
+            body {
+
+                align-items: flex-start;
+
+                padding-top: 80px;
+
+                overflow-y: auto;
+
+            }
+
+            .paper {
+
+                width: 95%;
+
+                min-height: 750px;
+
+                padding: 55px 35px;
+
+            }
+
+            .letter-content {
+
+                font-size: 17px;
+
+                line-height: 1.9;
+
+            }
+
+            .greeting {
+
+                font-size: 24px;
+
+            }
+
+            .back {
+
+                top: 18px;
+                left: 18px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- BACK BUTTON -->
+
+<a href="letters.html" class="back">
+    ← Back to letters
+</a>
+
+
+<!-- LETTER PAPER -->
+
+<div class="paper">
+
+
+    <!-- Decorative flowers -->
+
+    <div class="flower top">
+        ✿
+    </div>
+
+    <div class="flower bottom">
+        ❀
+    </div>
+
+
+    <!-- DATE -->
+
+    <div class="date">
+
+        October 01, 2026
+
+    </div>
+
+
+    <!-- GREETING -->
+
+    <div class="greeting">
+
+        Happyyy Birthday Akkaaa ❤️,
+
+    </div>
+
+
+    <!-- =========================
+         YOUR ACTUAL LETTER
+    ========================== -->
+
+    <div class="letter-content">
+
+        <p>
+            Happy Birthday to you Akkaaa!!!
+            I pray that you have a wonderful year ahead filled with lots of love, Happiness and peace.
+        </p>
+
+        <p>
+            This is a small gift from my side. Since I cannot physically be there with you, 
+            I thought of sending you a little piece of my love instead. ❤️
+        </p>
+
+        <p>
+            This is called Open When Letters. I have written some letters for different situations, so that you never feel too far away from home. 
+            You can open and read them whenever you miss home, need a little encouragement, or simply want to feel a little closer to us.
+        </p>
+
+        <p>
+            I have seen you create gifts for all our loved ones without expecting anything in return. I know I'm not always the best at making plans or creating gifts, 
+            but I really wanted to make something special for you this time.
+          
+        </p>
+        <p>
+            I hope you love this little gift as much as I loved making it for you. ❤️
+        </p>
+
+    </div>
+
+
+    <!-- SIGNATURE -->
+
+    <div class="signature">
+
+        With all my love,
+        <br>
+
+        Sheryl
+
+        <span class="tiny-heart">♡</span>
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>

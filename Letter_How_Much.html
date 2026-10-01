@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>How Much You Mean To Me ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background:
+                radial-gradient(circle at 10% 15%, #f7dce6 0%, transparent 28%),
+                radial-gradient(circle at 90% 85%, #dce9d7 0%, transparent 30%),
+                #f7eee2;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 60px 20px;
+
+            color: #5a4035;
+        }
+
+        /* BACK BUTTON */
+
+        .back {
+            position: fixed;
+            top: 25px;
+            left: 30px;
+
+            text-decoration: none;
+
+            color: #7b5145;
+
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+
+            background: rgba(255, 255, 255, 0.7);
+
+            padding: 10px 17px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 3px 12px rgba(90, 60, 40, 0.1);
+
+            transition: 0.2s;
+
+            z-index: 10;
+        }
+
+        .back:hover {
+            transform: translateX(-3px);
+            background: white;
+        }
+
+
+        /* PAPER */
+
+        .paper {
+            position: relative;
+
+            width: 780px;
+            min-height: 1050px;
+
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(120, 90, 60, 0.025) 0px,
+                    rgba(120, 90, 60, 0.025) 1px,
+                    transparent 1px,
+                    transparent 5px
+                ),
+                #fffaf0;
+
+            padding: 65px 85px 80px;
+
+            box-shadow:
+                0 22px 45px rgba(90, 60, 40, 0.18),
+                0 3px 8px rgba(90, 60, 40, 0.08);
+
+            border-radius: 4px;
+
+            transform: rotate(-0.25deg);
+        }
+
+
+        /* FLOWERS */
+
+        .flower {
+            position: absolute;
+
+            font-size: 32px;
+
+            opacity: 0.65;
+        }
+
+        .flower.one {
+            top: 22px;
+            left: 28px;
+            color: #d78da8;
+        }
+
+        .flower.two {
+            top: 28px;
+            right: 30px;
+            color: #91aa83;
+        }
+
+        .flower.three {
+            bottom: 28px;
+            left: 32px;
+            color: #dfaa6c;
+        }
+
+        .flower.four {
+            bottom: 25px;
+            right: 32px;
+            color: #c68c9f;
+        }
+
+
+        /* SMALL TOP LABEL */
+
+        .small-title {
+            text-align: center;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+
+            letter-spacing: 2.5px;
+
+            text-transform: uppercase;
+
+            color: #aa8275;
+
+            margin-bottom: 8px;
+        }
+
+
+        /* MAIN TITLE */
+
+        .title {
+            text-align: center;
+
+            margin-bottom: 20px;
+        }
+
+        .title h1 {
+            margin: 0;
+
+            font-family:
+                "Segoe Print",
+                "Bradley Hand",
+                "Comic Sans MS",
+                cursive;
+
+            font-size: 31px;
+
+            color: #70483d;
+
+            font-weight: 600;
+        }
+
+
+        /* DATE */
+
+        .date {
+            text-align: right;
+
+            font-family:
+                "Segoe Print",
+                "Bradley Hand",
+                cursive;
+
+            font-size: 13px;
+
+            color: #9b8177;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* LETTER */
+
+        .letter {
+            font-family:
+                "Segoe Print",
+                "Bradley Hand",
+                "Comic Sans MS",
+                cursive;
+
+            font-size: 18px;
+
+            line-height: 1.9;
+        }
+
+        .letter p {
+            margin: 0 0 22px;
+        }
+
+        .hello {
+            font-size: 23px;
+            color: #70483d;
+        }
+
+
+        /* EMPHASIS */
+
+        .bold {
+            font-weight: bold;
+            color: #754d43;
+        }
+
+        .big {
+            font-size: 21px;
+            font-weight: bold;
+            color: #70483d;
+        }
+
+
+        /* SONG */
+
+        .song {
+            margin: 30px 25px;
+
+            padding: 18px 25px;
+
+            border-left: 3px solid #d49aaa;
+
+            background: rgba(245, 222, 224, 0.35);
+
+            text-align: center;
+
+            font-size: 16px;
+
+            color: #795d56;
+        }
+
+
+        /* PHOTO ROW */
+
+        .photo-row {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 35px;
+
+            margin: 35px 0 45px;
+
+            flex-wrap: wrap;
+        }
+
+
+        /* POLAROID */
+
+        .polaroid {
+            width: 245px;
+
+            background: white;
+
+            padding: 12px 12px 18px;
+
+            box-shadow:
+                0 7px 15px rgba(80, 55, 40, 0.18);
+
+            transition: transform 0.25s;
+        }
+
+
+        /* Slightly different tilt */
+
+        .polaroid:nth-child(1) {
+            transform: rotate(-4deg);
+        }
+
+        .polaroid:nth-child(2) {
+            transform: rotate(4deg);
+        }
+
+        .polaroid:hover {
+            transform: rotate(0deg) translateY(-5px);
+        }
+
+
+        /* ACTUAL PHOTO */
+
+        .polaroid img {
+            width: 100%;
+
+            height: 210px;
+
+            display: block;
+
+            object-fit: cover;
+
+            background: #f5eee5;
+        }
+
+
+        /* PHOTO CAPTION */
+
+        .photo-caption {
+            text-align: center;
+
+            margin-top: 10px;
+
+            font-family:
+                "Segoe Print",
+                "Bradley Hand",
+                cursive;
+
+            font-size: 13px;
+
+            color: #80645b;
+        }
+
+
+        /* PROMISE SECTION */
+
+        .promise {
+            margin: 32px 0;
+
+            padding: 25px 30px;
+
+            background: rgba(231, 239, 224, 0.45);
+
+            border-radius: 8px;
+
+            border: 1px dashed #a8b89d;
+        }
+
+        .promise p {
+            margin-bottom: 18px;
+        }
+
+        .promise p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* FINAL MESSAGE */
+
+        .final {
+            text-align: center;
+
+            margin: 38px 0;
+
+            font-size: 21px;
+
+            color: #70483d;
+
+            font-weight: bold;
+        }
+
+
+        /* SIGNATURE */
+
+        .signature {
+            margin-top: 45px;
+
+            font-size: 19px;
+        }
+
+        .signature strong {
+            font-size: 23px;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            body {
+                padding: 70px 12px 30px;
+            }
+
+            .paper {
+                width: 100%;
+
+                padding:
+                    55px
+                    30px
+                    60px;
+            }
+
+            .letter {
+                font-size: 16px;
+
+                line-height: 1.8;
+            }
+
+            .title h1 {
+                font-size: 25px;
+            }
+
+            .photo-row {
+                gap: 20px;
+            }
+
+            .polaroid {
+                width: 220px;
+            }
+
+            .polaroid img {
+                height: 190px;
+            }
+
+            .back {
+                left: 15px;
+                top: 15px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- BACK BUTTON -->
+
+    <a href="letters.html" class="back">
+        ← Back to letters
+    </a>
+
+
+    <!-- PAPER -->
+
+    <div class="paper">
+
+
+        <!-- DECORATIVE FLOWERS -->
+
+        <div class="flower one">✿</div>
+        <div class="flower two">❀</div>
+        <div class="flower three">✿</div>
+        <div class="flower four">❀</div>
+
+
+        <!-- TITLE -->
+
+        <div class="small-title">
+            Open When...
+        </div>
+
+        <div class="title">
+            <h1>
+                You Need To Know How Much You Mean To Me ❤️
+            </h1>
+        </div>
+
+
+        <!-- DATE -->
+
+
+
+        <!-- LETTER -->
+
+        <div class="letter">
+
+
+            <p class="hello">
+                Hellooo Akkaaa,
+            </p>
+
+
+            <!-- SONG REFERENCE -->
+
+            <div class="song">
+
+                There is this song that always makes me think of us,
+                because somehow its words feel so much like what I want
+                to tell you. ❤️
+
+                <br><br>
+
+                <i>
+                    “Catch my eye, take my hand
+This bond is tighter than we ever planned
+Give me courage, so I can land
+We know that divided we'll fall
+So together we stand”
+                </i>
+
+            </div>
+
+
+            <p>
+                I thank God every day for the gift of you.
+            </p>
+
+
+            <p>
+                You have made my life easier simply by being there.
+                And the more I grow up, the more I realise just how
+                blessed I am to have a sister like you.
+            </p>
+
+
+            <p>
+                Yes, we fight a lot. 😂
+                We have definitely had our moments.
+            </p>
+
+
+            <p>
+                But no matter what, you have always held my hand
+                through it all.
+            </p>
+
+
+            <!-- PHOTOS -->
+
+            <div class="photo-row">
+
+
+                <!-- PHOTO 1 -->
+
+                <div class="polaroid">
+
+                    <img
+                        src="Image1.JPG"
+                        alt="A photo of us"
+                    >
+
+                    <div class="photo-caption">
+                        Us ❤️
+                    </div>
+
+                </div>
+
+
+                <!-- PHOTO 2 -->
+
+                <div class="polaroid">
+
+                    <img
+                        src="Image2.jpeg"
+                        alt="Another photo of us"
+                    >
+
+                    <div class="photo-caption">
+                        Always us ♡
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <p>
+                Even though you were also figuring everything out
+                for the first time, you somehow always made sure
+                to make my way a little easier.
+            </p>
+
+
+            <p>
+                You are the person I look up to at all times.
+                There are so many things about you that I admire,
+                and I don't think I tell you that enough.
+            </p>
+
+
+            <p class="big">
+                You mean so much to me.
+            </p>
+
+
+            <p>
+                Sometimes I feel bad thinking about how much you
+                had to figure out on your own.
+            </p>
+
+
+            <p>
+                You were learning everything for the first time too,
+                but somehow you still became the person who made
+                things easier for everyone else.
+            </p>
+
+
+            <p>
+                I honestly don't know if I could have been as mature,
+                strong, and amazing as you were.
+            </p>
+
+
+            <p>
+                And sometimes I think about how much easier things
+                could have been for you if you had someone beside you
+                to support you the way you have always supported me.
+            </p>
+
+
+            <!-- PROMISE -->
+
+            <div class="promise">
+
+                <p>
+                    So I want to promise you something.
+                </p>
+
+                <p>
+                    I will try my best to become someone you can
+                    <span class="bold">rely on too.</span>
+                </p>
+
+                <p>
+                    Someone you can come to without having to pretend
+                    that everything is okay.
+                </p>
+
+                <p>
+                    Someone with whom you can let your guard down.
+                </p>
+
+                <p>
+                    Someone who will listen when you don't want to
+                    be the strong one anymore.
+                </p>
+
+            </div>
+
+
+            <p>
+                Because you have spent so much of your life giving
+                to everyone around you.
+            </p>
+
+
+            <p class="big">
+                And I hope that, little by little,
+                I can become someone who makes sure
+                you receive too.
+            </p>
+
+
+            <p>
+                You don't always have to be the one holding
+                everyone's hand.
+            </p>
+
+
+            <p>
+                You can hold mine.
+            </p>
+
+
+            <p>
+                I'll be there.
+            </p>
+
+
+            <p>
+                Through the stupid fights,
+                the serious conversations, the nonsense, the tears,
+                the celebrations, and everything in between.
+            </p>
+
+
+            <p>
+                I don't know what life is going to look like
+                years from now. We might live in different places,
+                have completely different routines, and be busy
+                with our own lives.
+            </p>
+
+
+            <p>
+                But I hope one thing never changes:
+            </p>
+
+
+            <p class="final">
+                I'll always be your little sister,<br>
+                and you'll always have me. ❤️
+            </p>
+
+
+            <p>
+                And whenever you forget how much you mean to me,
+                come back to this letter.
+            </p>
+
+
+            <p>
+                You are not just my sister.
+            </p>
+
+
+            <p>
+                You are one of the biggest blessings God has
+                given me.
+            </p>
+
+
+            <p>
+                And I will always be grateful that, out of all
+                the people in the world, I got to call
+                <span class="bold">you</span> my akka.
+            </p>
+
+
+            <!-- FINAL SONG REFERENCE -->
+
+            <div class="song">
+
+                <i>
+                    "The world's not perfect, but it's not that bad
+If we got each other, and that's all we have
+I will be your brother, and I'll hold your hand
+You should know I'll be there for you”
+                </i>
+
+                <br>
+
+            </div>
+
+
+            <p class="final">
+               I Have everything I ever wanted Because I have you. ❤️
+            </p>
+
+
+            <p>
+                And I hope you always know that you have me too.
+            </p>
+
+
+            <!-- SIGNATURE -->
+
+            <div class="signature">
+
+                With all my love,<br>
+
+                <strong>
+                    Sheryl ♡
+                </strong>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>

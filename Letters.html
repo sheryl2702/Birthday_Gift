@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Your Letters 💌</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #fff8f4;
+    font-family: Georgia, serif;
+    color: #674c50;
+    overflow: hidden;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(2px);
+}
+
+.circle.one {
+    width: 350px;
+    height: 350px;
+    background: #f8dfe2;
+    top: -150px;
+    left: -120px;
+    opacity: .5;
+}
+
+.circle.two {
+    width: 350px;
+    height: 350px;
+    background: #f7e6c9;
+    bottom: -150px;
+    right: -100px;
+    opacity: .45;
+}
+
+.sparkle {
+    position: absolute;
+    color: #d5a4ad;
+    font-size: 22px;
+    animation: float 4s ease-in-out infinite;
+}
+
+.sparkle.one {
+    top: 18%;
+    left: 8%;
+}
+
+.sparkle.two {
+    top: 22%;
+    right: 9%;
+    animation-delay: 1s;
+}
+
+.sparkle.three {
+    bottom: 15%;
+    left: 10%;
+    animation-delay: 2s;
+}
+
+.sparkle.four {
+    bottom: 18%;
+    right: 10%;
+    animation-delay: 3s;
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.header {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    padding-top: 40px;
+}
+
+.subtitle {
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #b78b91;
+    margin-bottom: 12px;
+}
+
+.header h1 {
+    font-size: 46px;
+    font-weight: normal;
+    color: #704f55;
+}
+
+.header h1 span {
+    color: #c67d8c;
+    font-style: italic;
+}
+
+
+/* =========================
+   LETTER AREA
+========================= */
+
+.letters-container {
+    position: relative;
+
+    width: 900px;
+    height: 560px;
+
+    margin: 20px auto;
+}
+
+
+/* =========================
+   GRID
+========================= */
+
+.letters-grid {
+    width: 840px;
+
+    position: absolute;
+
+    left: 50%;
+    top: 20px;
+
+    transform: translateX(-50%);
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 250px);
+    grid-template-rows: repeat(2, 165px);
+
+    gap: 35px 30px;
+
+    justify-content: center;
+}
+
+
+/* =========================
+   REALISTIC ENVELOPE
+========================= */
+
+.envelope {
+
+    width: 250px;
+    height: 165px;
+
+    position: relative;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 12px 25px rgba(87, 57, 57, .16);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+/* Envelope paper */
+
+.envelope:nth-child(1) {
+    background: #f2d5da;
+}
+
+.envelope:nth-child(2) {
+    background: #f4dfc5;
+}
+
+.envelope:nth-child(3) {
+    background: #e5d7e3;
+}
+
+.envelope:nth-child(4) {
+    background: #efd8ca;
+}
+
+.envelope:nth-child(5) {
+    background: #f4dadd;
+}
+
+.envelope:nth-child(6) {
+    background: #e7dccb;
+}
+
+
+/*
+   Bottom diagonal folds.
+*/
+
+.envelope .left-fold,
+.envelope .right-fold {
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 0;
+    height: 0;
+
+    z-index: 1;
+}
+
+.envelope .left-fold {
+
+    left: 0;
+
+    border-top: 82px solid transparent;
+    border-right: 125px solid rgba(255,255,255,.22);
+}
+
+.envelope .right-fold {
+
+    right: 0;
+
+    border-top: 82px solid transparent;
+    border-left: 125px solid rgba(255,255,255,.18);
+}
+
+
+/*
+   The famous triangular
+   envelope flap.
+*/
+
+.envelope .flap {
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    border-top: 88px solid rgba(255,255,255,.32);
+
+    z-index: 4;
+
+    transition:
+        transform .6s ease;
+}
+
+
+/*
+   Central paper seam.
+*/
+
+.envelope .seam-left {
+
+    position: absolute;
+
+    width: 1px;
+    height: 160px;
+
+    background: rgba(120,80,80,.10);
+
+    left: 50%;
+    bottom: -40px;
+
+    transform: rotate(55deg);
+
+    z-index: 2;
+}
+
+.envelope .seam-right {
+
+    position: absolute;
+
+    width: 1px;
+    height: 160px;
+
+    background: rgba(120,80,80,.10);
+
+    right: 50%;
+    bottom: -40px;
+
+    transform: rotate(-55deg);
+
+    z-index: 2;
+}
+
+
+/* =========================
+   LETTER LABEL
+========================= */
+
+.label {
+
+    position: absolute;
+
+    left: 15px;
+    right: 15px;
+
+    bottom: 20px;
+
+    z-index: 10;
+
+    text-align: center;
+
+    font-size: 17px;
+
+    color: #694c52;
+
+    line-height: 1.3;
+
+    transition: .3s ease;
+}
+
+.label small {
+
+    display: block;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #a77b83;
+
+    margin-bottom: 5px;
+}
+
+
+/* =========================
+   HOVER
+========================= */
+
+.envelope:hover {
+
+    transform: translateY(-8px) rotate(-1deg);
+
+    box-shadow:
+        0 20px 35px rgba(87,57,57,.22);
+}
+
+.envelope:hover .flap {
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   OPEN FIRST
+========================= */
+
+.envelope.first {
+
+    background: #eecbd2;
+}
+
+.envelope.first .label {
+
+    font-size: 20px;
+
+    font-style: italic;
+
+    color: #734d56;
+}
+
+
+/* Little heart seal */
+
+.seal {
+
+    position: absolute;
+
+    z-index: 12;
+
+    left: 50%;
+    top: 67px;
+
+    transform: translateX(-50%);
+
+    width: 30px;
+    height: 30px;
+
+    background: #c87f8d;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    font-size: 15px;
+
+    box-shadow:
+        0 3px 8px rgba(100,60,60,.15);
+}
+
+
+/* =========================
+   OPEN BUTTON
+========================= */
+
+.button {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    padding: 13px 28px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #c77f8d;
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 18px rgba(180,100,120,.2);
+
+    transition: .3s ease;
+}
+
+.button:hover {
+
+    background: #b76e7d;
+
+    transform:
+        translateX(-50%)
+        translateY(-3px);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 950px) {
+
+    body {
+        overflow: auto;
+    }
+
+    .letters-container {
+
+        width: 100%;
+
+        height: auto;
+
+        margin-top: 25px;
+
+        padding-bottom: 50px;
+    }
+
+    .letters-grid {
+
+        position: relative;
+
+        width: 90%;
+
+        top: 0;
+
+        transform: none;
+
+        left: auto;
+
+        margin: auto;
+
+        grid-template-columns:
+            repeat(2, minmax(150px, 1fr));
+
+        grid-template-rows: auto;
+
+        gap: 20px;
+    }
+
+    .envelope {
+
+        width: 100%;
+        height: 145px;
+    }
+
+    .header h1 {
+        font-size: 35px;
+    }
+
+    .button {
+        position: relative;
+        margin-top: 30px;
+        left: 50%;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .letters-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .envelope {
+
+        max-width: 300px;
+
+        width: 100%;
+
+        margin: auto;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     BACKGROUND
+========================= -->
+
+<div class="background">
+
+    <div class="circle one"></div>
+    <div class="circle two"></div>
+
+    <div class="sparkle one">♡</div>
+    <div class="sparkle two">✦</div>
+    <div class="sparkle three">♡</div>
+    <div class="sparkle four">✦</div>
+
+</div>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+    <div class="subtitle">
+        A little bundle of letters
+    </div>
+
+    <h1>
+        For every version of you,
+        <span>there's a letter ♡</span>
+    </h1>
+
+</header>
+
+
+<!-- =========================
+     LETTERS
+========================= -->
+
+<section class="letters-container">
+
+
+    <div class="letters-grid">
+
+
+        <!-- 1 -->
+
+        <div class="envelope first" onclick="window.location.href='letter_Content.html'">
+
+            <div class="flap"></div>
+
+            <div class="left-fold"></div>
+            <div class="right-fold"></div>
+
+            <div class="seam-left"></div>
+            <div class="seam-right"></div>
+
+
+            <div class="label">
+
+                <small>Start here</small>
+
+                OPEN FIRST
+
+            </div>
+
+        </div>
+
+
+        <!-- 2 -->
+
+        <div class="envelope" onclick="window.location.href='letter_How_Much.html'">
+
+            <div class="flap"></div>
+
+            <div class="left-fold"></div>
+            <div class="right-fold"></div>
+
+            <div class="seam-left"></div>
+            <div class="seam-right"></div>
+
+            <div class="label">
+
+                <small>Open when</small>
+
+                You Need To Know How Much You Mean To Me
+
+            </div>
+
+        </div>
+
+
+        <!-- 3 -->
+
+        <div class="envelope" onclick="window.location.href='letter_Exhausted.html'" >
+
+            <div class="flap"></div>
+
+            <div class="left-fold"></div>
+            <div class="right-fold"></div>
+
+            <div class="seam-left"></div>
+            <div class="seam-right"></div>
+
+            <div class="label">
+
+                <small>Open when</small>
+
+                You Are Exhausted
+
+            </div>
+
+        </div>
+
+
+        <!-- 4 -->
+
+        <div class="envelope" onclick="window.location.href='letter_Miss_Home.html'">
+
+            <div class="flap"></div>
+
+            <div class="left-fold"></div>
+            <div class="right-fold"></div>
+
+            <div class="seam-left"></div>
+            <div class="seam-right"></div>
+
+            <div class="label">
+
+                <small>Open when</small>
+
+                You Miss Home 
+
+            </div>
+
+        </div>
+
+
+        <!-- 5 -->
+
+        <div class="envelope" onclick="window.location.href='letter_Happy.html'">
+
+            <div class="flap"></div>
+
+            <div class="left-fold"></div>
+            <div class="right-fold"></div>
+
+            <div class="seam-left"></div>
+            <div class="seam-right"></div>
+
+            <div class="label">
+
+                <small>Open when</small>
+
+                You're Happy
+
+            </div>
+
+        </div>
+
+
+        <!-- 6 -->
+
+        <div class="envelope" onclick="window.location.href='letter_Future.html'">
+
+            <div class="flap"></div>
+
+            <div class="left-fold"></div>
+            <div class="right-fold"></div>
+
+            <div class="seam-left"></div>
+            <div class="seam-right"></div>
+
+            <div class="label">
+
+                <small>Open when</small>
+
+                You Need A Reminder That Everything Will Be Okay 
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <button class="button">
+        Take your time 💌
+    </button>
+
+</section>
+
+</body>
+</html>

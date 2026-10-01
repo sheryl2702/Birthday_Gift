@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Open When You Need A Reminder ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background:
+                radial-gradient(circle at 10% 15%, #dfe9d9 0%, transparent 28%),
+                radial-gradient(circle at 90% 85%, #ead8e3 0%, transparent 30%),
+                #f7eee2;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 60px 20px;
+
+            color: #5a4035;
+        }
+
+
+        /* BACK BUTTON */
+
+        .back {
+            position: fixed;
+            top: 25px;
+            left: 30px;
+
+            text-decoration: none;
+
+            color: #7b5145;
+
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+
+            background: rgba(255, 255, 255, 0.75);
+
+            padding: 10px 17px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 3px 12px rgba(90, 60, 40, 0.1);
+
+            transition: 0.2s;
+
+            z-index: 10;
+        }
+
+        .back:hover {
+            transform: translateX(-3px);
+            background: white;
+        }
+
+
+        /* PAPER */
+
+        .paper {
+            position: relative;
+
+            width: 780px;
+            min-height: 1100px;
+
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(120, 90, 60, 0.025) 0px,
+                    rgba(120, 90, 60, 0.025) 1px,
+                    transparent 1px,
+                    transparent 5px
+                ),
+                #fffaf0;
+
+            padding: 65px 85px 80px;
+
+            box-shadow:
+                0 22px 45px rgba(90, 60, 40, 0.18),
+                0 3px 8px rgba(90, 60, 40, 0.08);
+
+            border-radius: 4px;
+
+            transform: rotate(0.2deg);
+        }
+
+
+        /* FLOWERS */
+
+        .flower {
+            position: absolute;
+
+            font-size: 32px;
+
+            opacity: 0.65;
+        }
+
+        .flower.one {
+            top: 22px;
+            left: 28px;
+            color: #d78da8;
+        }
+
+        .flower.two {
+            top: 28px;
+            right: 30px;
+            color: #91aa83;
+        }
+
+        .flower.three {
+            bottom: 28px;
+            left: 32px;
+            color: #dfaa6c;
+        }
+
+        .flower.four {
+            bottom: 25px;
+            right: 32px;
+            color: #c68c9f;
+        }
+
+
+        /* LITTLE STARS */
+
+        .star {
+            position: absolute;
+
+            font-size: 19px;
+
+            opacity: 0.55;
+        }
+
+        .star.one {
+            top: 100px;
+            left: 55px;
+            color: #d6a85b;
+        }
+
+        .star.two {
+            top: 110px;
+            right: 58px;
+            color: #c994aa;
+        }
+
+
+        /* TITLE */
+
+        .small-title {
+            text-align: center;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+
+            letter-spacing: 2.5px;
+
+            text-transform: uppercase;
+
+            color: #aa8275;
+
+            margin-bottom: 8px;
+        }
+
+        .title {
+            text-align: center;
+
+            margin-bottom: 20px;
+        }
+
+        .title h1 {
+            margin: 0;
+
+            font-family:
+                "Segoe Print",
+                "Bradley Hand",
+                "Comic Sans MS",
+                cursive;
+
+            font-size: 31px;
+
+            color: #70483d;
+
+            font-weight: 600;
+        }
+
+
+        /* DATE */
+
+        .date {
+            text-align: right;
+
+            font-family:
+                "Segoe Print",
+                "Bradley Hand",
+                cursive;
+
+            font-size: 13px;
+
+            color: #9b8177;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* LETTER */
+
+        .letter {
+            font-family:
+                "Segoe Print",
+                "Bradley Hand",
+                "Comic Sans MS",
+                cursive;
+
+            font-size: 18px;
+
+            line-height: 1.9;
+        }
+
+        .letter p {
+            margin: 0 0 22px;
+        }
+
+        .hello {
+            font-size: 23px;
+            color: #70483d;
+        }
+
+
+        /* EMPHASIS */
+
+        .bold {
+            font-weight: bold;
+            color: #754d43;
+        }
+
+        .big {
+            font-size: 21px;
+            font-weight: bold;
+            color: #70483d;
+        }
+
+
+        /* SONG BOX */
+
+        .song {
+            margin: 32px 15px;
+
+            padding: 22px 28px;
+
+            text-align: center;
+
+            background:
+                rgba(231, 239, 224, 0.45);
+
+            border-left: 3px solid #9caf91;
+
+            border-radius: 5px;
+
+            color: #765c53;
+
+            font-size: 17px;
+        }
+
+        .song-title {
+            display: block;
+
+            font-size: 21px;
+
+            color: #70483d;
+
+            font-weight: bold;
+
+            margin-bottom: 12px;
+        }
+
+
+        /* PLOT TWIST BOX */
+
+        .plot-twist {
+            margin: 35px 5px;
+
+            padding: 25px 30px;
+
+            background:
+                rgba(245, 222, 224, 0.35);
+
+            border: 1px dashed #d49aaa;
+
+            border-radius: 9px;
+
+            text-align: center;
+        }
+
+        .plot-twist .heading {
+            font-size: 23px;
+
+            font-weight: bold;
+
+            color: #70483d;
+
+            margin-bottom: 12px;
+        }
+
+
+        /* PROGRESS BOX */
+
+        .progress {
+            margin: 35px 5px;
+
+            padding: 25px 30px;
+
+            background:
+                rgba(250, 232, 180, 0.4);
+
+            border: 1px dashed #d7af68;
+
+            border-radius: 9px;
+        }
+
+        .progress-title {
+            text-align: center;
+
+            font-size: 23px;
+
+            font-weight: bold;
+
+            color: #70483d;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* GOD SECTION */
+
+        .faith {
+            margin: 35px 10px;
+
+            padding: 27px 30px;
+
+            text-align: center;
+
+            background: rgba(231, 239, 224, 0.5);
+
+            border-radius: 10px;
+        }
+
+        .faith-title {
+            font-size: 24px;
+
+            font-weight: bold;
+
+            color: #70483d;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* FINAL */
+
+        .final {
+            text-align: center;
+
+            margin: 42px 0 30px;
+
+            font-size: 22px;
+
+            color: #70483d;
+
+            font-weight: bold;
+        }
+
+
+        /* SIGNATURE */
+
+        .signature {
+            margin-top: 45px;
+
+            font-size: 19px;
+        }
+
+        .signature strong {
+            font-size: 23px;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            body {
+                padding: 70px 12px 30px;
+            }
+
+            .paper {
+                width: 100%;
+
+                padding:
+                    55px
+                    30px
+                    60px;
+            }
+
+            .letter {
+                font-size: 16px;
+
+                line-height: 1.8;
+            }
+
+            .title h1 {
+                font-size: 26px;
+            }
+
+            .song,
+            .plot-twist,
+            .progress,
+            .faith {
+                margin-left: 0;
+                margin-right: 0;
+
+                padding: 20px;
+            }
+
+            .back {
+                left: 15px;
+                top: 15px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- BACK BUTTON -->
+
+    <a href="letters.html" class="back">
+        ← Back to letters
+    </a>
+
+
+    <!-- PAPER -->
+
+    <div class="paper">
+
+
+        <!-- DECORATIONS -->
+
+        <div class="flower one">✿</div>
+        <div class="flower two">❀</div>
+        <div class="flower three">✿</div>
+        <div class="flower four">❀</div>
+
+        <div class="star one">✦</div>
+        <div class="star two">✧</div>
+
+
+        <!-- TITLE -->
+
+        <div class="small-title">
+            Open When...
+        </div>
+
+        <div class="title">
+            <h1>
+                You Need A Reminder That Everything Will Be Okay ❤️
+            </h1>
+        </div>
+
+
+
+        <!-- LETTER -->
+
+        <div class="letter">
+
+
+            <p class="hello">
+                Hellooo Akkaaa ❤️
+            </p>
+
+
+            <p>
+                First of all...
+            </p>
+
+
+            <p class="big">
+                Take a deep breath.
+            </p>
+
+
+            <p>
+                And remember that life has its own way of
+                surprising us.
+            </p>
+
+
+            <!-- LIFE'S ON -->
+
+            <div class="song">
+
+                <span class="song-title">
+                     Sometimes Life feels like this:
+                </span>
+
+                <i>
+                    “Oda oda oda dhooram kuraiyala
+Paada paada paada paattum mudiyala
+Poga poga poga onnum puriyala
+Aaga motham onnum velangala”
+                </i>
+
+                <br>
+            </div>
+
+
+            <p>
+                When things don't seem to go your way,
+                even after all your hard work,
+                remember that sometimes things happen
+                for a reason we cannot see yet.
+            </p>
+
+
+            <p>
+                I know that's not always easy to accept.
+            </p>
+
+
+            <p>
+                So if it feels too hard to accept,
+                think of it as an
+                <span class="bold">
+                    unexpected plot twist that god planned in your life's story.
+                </span>
+            </p>
+
+
+            <!-- PLOT TWIST -->
+
+            <div class="plot-twist">
+
+                <div class="heading">
+                     The Plot Twist
+                </div>
+
+                <p>
+                    At first, it might be annoying.
+                </p>
+
+                <p>
+                    You might wonder,
+                    <i>"Why did this have to happen?"</i>
+                </p>
+
+                <p>
+                    You might even wish you could
+                    rewrite the chapter.
+                </p>
+
+                <p class="bold">
+                    But sometimes you have to keep reading
+                    before you understand why that chapter
+                    was there.
+
+                </p>
+
+            </div>
+
+
+            <p>
+                And maybe, when you finally reach the next few
+                chapters, you'll look back and realise...
+            </p>
+
+
+            <p class="big">
+                "Ohhh. So that's why." ❤️
+                The uncertainity in life is what makes it worth while.
+            </p>
+
+
+            <p>
+                So don't let one bad chapter convince you
+                that the whole story is bad.
+            </p>
+
+
+            <!-- PROGRESS -->
+
+            <div class="progress">
+
+                <div class="progress-title">
+                    And About Progress...
+                </div>
+
+                <p>
+                    If progress ever seems slow, remember:
+                </p>
+
+                <p class="bold">
+                    Slow progress is still progress.
+                </p>
+
+                <p>
+                    Just because you cannot see a huge change
+                    doesn't mean nothing is happening.
+                </p>
+
+                <p>
+                    You are growing.
+                    You are learning.
+                    You are becoming better.
+                    Little by little.
+                </p>
+
+                <p>
+                    So please remember to celebrate
+                    those tiny victories too.
+                </p>
+
+            </div>
+
+
+            <p>
+                You don't have to wait until you've reached
+                the final destination to be proud of yourself.
+            </p>
+
+
+            <p>
+                Be proud of every little step that got you there.
+            </p>
+
+
+            <!-- GOD -->
+
+            <div class="faith">
+
+                <div class="faith-title">
+                     And About Your Future...
+                </div>
+
+                <p>
+                    Your future is in really good hands.
+                </p>
+
+                <p>
+                    He is the best Author I have ever seen.
+                </p>
+
+                <p>
+                    And I trust that He will make sure
+                    you become the person you are meant to be
+                    and fulfill the purpose He has for you.
+                </p>
+
+                <p class="bold">
+                    You don't have to know the whole story.
+                    Just trust the Author.
+                </p>
+
+            </div>
+
+
+            <p>
+                You have already seen the miracles God has
+                worked in your life.
+            </p>
+
+
+            <p>
+                So when things feel uncertain,
+                remember all the times you thought
+                something wouldn't work out...
+                and somehow, it did.
+            </p>
+
+
+            <p>
+                And when what other people say hurts you,
+                remember this:
+            </p>
+
+
+            <p class="big">
+                They don't matter more than you do.
+            </p>
+
+
+            <p>
+                You are your own girl.
+            </p>
+
+
+            <p>
+                You don't have to live your life trying to
+                make everyone else happy or prove yourself
+                to everyone around you.
+            </p>
+
+
+            <p>
+                Let them talk.
+            </p>
+
+
+            <p>
+                You keep becoming the person you want to be.
+            </p>
+
+
+            <!-- SONG 2 -->
+
+            <div class="song">
+
+                <span class="song-title">
+                    🎵 And when you need a little reminder...
+                </span>
+
+                <i>
+                    “Sabki Rok Hai Tok Hai
+Nok Hai Jhok Hai
+
+Par Dil Mein Phir Bhi Hope Hai
+Hai Na, Hai Ha
+
+Life Thodi Hard Hai
+Andhe Ke Card Hai
+Hum Bhi Toh Star Hai
+Hai Na
+
+
+Ke Mana Iss Duniya Ki Hu Hi Nahi Main
+Apni Hi Duniya Bnaungi”
+                </i>
+
+                <br><br>
+
+                <span>
+                    Keep the hope.
+                    Keep going.
+                    Keep being your own person.
+                </span>
+
+            </div>
+
+
+            <p>
+                Because you don't need to fit perfectly
+                into somebody else's version of what your life
+                should look like.
+            </p>
+
+
+            <p class="big">
+                You can create your own world.
+            </p>
+
+
+            <p>
+                Your own story.
+                Your own path.
+                Your own little universe.
+            </p>
+
+
+            <p>
+                And if the world doesn't understand it,
+                that's okay.
+            </p>
+
+
+            <p>
+                You don't need everyone to understand you.
+            </p>
+
+
+            <p>
+                You just need to keep going.
+            </p>
+
+
+            <p class="final">
+                One day at a time.<br>
+                One little victory at a time.<br>
+                One chapter at a time. ❤️
+            </p>
+
+
+            <p>
+                And whenever you forget all of this,
+                come back and read this letter again.
+            </p>
+
+
+            <p>
+                Remember that you have already survived
+                so many things you once thought you couldn't.
+            </p>
+
+
+            <p>
+                You've made it this far.
+            </p>
+
+
+            <p>
+                And I know there is so much more waiting
+                for you ahead.
+            </p>
+
+
+            <p class="big">
+                So trust God.<br>
+                Trust the process.<br>
+                And most importantly, trust yourself.
+            </p>
+
+
+            <p>
+                And if you ever need someone to remind you
+                of all of this...
+            </p>
+
+
+            <p class="final">
+                You know where to find me. ❤️
+            </p>
+
+
+            <p>
+                No matter how far away I am,
+                I'll always be cheering for you.
+            </p>
+
+
+            <p>
+                Through every plot twist,
+                every tiny victory,
+                every crazy chapter,
+                and every beautiful surprise.
+            </p>
+
+
+            <p class="final">
+                This isn't the end of your story, Akka.<br>
+                It's just another chapter. ❤️
+            </p>
+
+
+            <!-- SIGNATURE -->
+
+            <div class="signature">
+
+                With all my love,<br>
+
+                <strong>
+                    Sheryl ♡
+                </strong>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>

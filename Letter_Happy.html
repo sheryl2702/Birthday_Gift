@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Open When You're Happyyy ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background:
+                radial-gradient(circle at 10% 15%, #f8e4b8 0%, transparent 28%),
+                radial-gradient(circle at 90% 85%, #dce9d7 0%, transparent 30%),
+                #fff5df;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 60px 20px;
+
+            color: #5a4035;
+        }
+
+
+        /* BACK BUTTON */
+
+        .back {
+            position: fixed;
+            top: 25px;
+            left: 30px;
+
+            text-decoration: none;
+
+            color: #7b5145;
+
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+
+            background: rgba(255, 255, 255, 0.75);
+
+            padding: 10px 17px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 3px 12px rgba(90, 60, 40, 0.1);
+
+            transition: 0.2s;
+
+            z-index: 10;
+        }
+
+        .back:hover {
+            transform: translateX(-3px);
+            background: white;
+        }
+
+
+        /* PAPER */
+
+        .paper {
+            position: relative;
+
+            width: 780px;
+            min-height: 950px;
+
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(120, 90, 60, 0.025) 0px,
+                    rgba(120, 90, 60, 0.025) 1px,
+                    transparent 1px,
+                    transparent 5px
+                ),
+                #fffaf0;
+
+            padding: 65px 85px 80px;
+
+            box-shadow:
+                0 22px 45px rgba(90, 60, 40, 0.18),
+                0 3px 8px rgba(90, 60, 40, 0.08);
+
+            border-radius: 4px;
+
+            transform: rotate(-0.2deg);
+        }
+
+
+        /* DECORATIVE FLOWERS */
+
+        .flower {
+            position: absolute;
+
+            font-size: 32px;
+
+            opacity: 0.7;
+        }
+
+        .flower.one {
+            top: 22px;
+            left: 28px;
+            color: #e6a64f;
+        }
+
+        .flower.two {
+            top: 28px;
+            right: 30px;
+            color: #91aa83;
+        }
+
+        .flower.three {
+            bottom: 28px;
+            left: 32px;
+            color: #e4b45f;
+        }
+
+        .flower.four {
+            bottom: 25px;
+            right: 32px;
+            color: #d88fa7;
+        }
+
+
+        /* LITTLE STARS */
+
+        .star {
+            position: absolute;
+
+            font-size: 20px;
+
+            opacity: 0.6;
+        }
+
+        .star.one {
+            top: 95px;
+            left: 55px;
+            color: #e5b14d;
+        }
+
+        .star.two {
+            top: 105px;
+            right: 60px;
+            color: #d993a7;
+        }
+
+
+        /* TITLE */
+
+        .small-title {
+            text-align: center;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+
+            letter-spacing: 2.5px;
+
+            text-transform: uppercase;
+
+            color: #aa8275;
+
+            margin-bottom: 8px;
+        }
+
+        .title {
+            text-align: center;
+
+            margin-bottom: 20px;
+        }
+
+        .title h1 {
+            margin: 0;
+
+            font-family:
+                "Segoe Print",
+                "Bradley Hand",
+                "Comic Sans MS",
+                cursive;
+
+            font-size: 33px;
+
+            color: #70483d;
+
+            font-weight: 600;
+        }
+
+
+        /* DATE */
+
+        .date {
+            text-align: right;
+
+            font-family:
+                "Segoe Print",
+                "Bradley Hand",
+                cursive;
+
+            font-size: 13px;
+
+            color: #9b8177;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* LETTER */
+
+        .letter {
+            font-family:
+                "Segoe Print",
+                "Bradley Hand",
+                "Comic Sans MS",
+                cursive;
+
+            font-size: 18px;
+
+            line-height: 1.9;
+        }
+
+        .letter p {
+            margin: 0 0 22px;
+        }
+
+        .hello {
+            font-size: 24px;
+            color: #70483d;
+        }
+
+
+        /* EMPHASIS */
+
+        .bold {
+            font-weight: bold;
+            color: #754d43;
+        }
+
+        .big {
+            font-size: 22px;
+
+            font-weight: bold;
+
+            color: #70483d;
+
+            text-align: center;
+        }
+
+
+        /* HAPPY BOX */
+
+        .happy-box {
+            margin: 30px 10px;
+
+            padding: 25px 28px;
+
+            text-align: center;
+
+            background:
+                rgba(250, 232, 180, 0.4);
+
+            border: 1px dashed #d7af68;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 4px 12px rgba(90, 60, 40, 0.06);
+        }
+
+        .happy-box .emoji {
+            font-size: 34px;
+
+            margin-bottom: 10px;
+        }
+
+        .happy-box p {
+            margin-bottom: 12px;
+        }
+
+        .happy-box p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* SONG */
+
+        .song {
+            margin: 35px 15px;
+
+            padding: 22px 28px;
+
+            text-align: center;
+
+            background:
+                rgba(239, 225, 204, 0.45);
+
+            border-radius: 8px;
+
+            color: #795d56;
+
+            font-size: 17px;
+        }
+
+        .song-title {
+            display: block;
+
+            font-size: 22px;
+
+            font-weight: bold;
+
+            color: #70483d;
+
+            margin-bottom: 12px;
+        }
+
+
+        /* CELEBRATE BOX */
+
+        .celebrate {
+            margin: 35px 5px;
+
+            padding: 25px 30px;
+
+            background:
+                rgba(231, 239, 224, 0.45);
+
+            border-radius: 8px;
+
+            border: 1px dashed #a8b89d;
+        }
+
+        .celebrate-title {
+            text-align: center;
+
+            font-size: 23px;
+
+            color: #70483d;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+        .celebrate p {
+            margin-bottom: 15px;
+        }
+
+        .celebrate p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* FINAL */
+
+        .final {
+            text-align: center;
+
+            margin: 40px 0 30px;
+
+            font-size: 22px;
+
+            color: #70483d;
+
+            font-weight: bold;
+        }
+
+
+        /* SIGNATURE */
+
+        .signature {
+            margin-top: 45px;
+
+            font-size: 19px;
+        }
+
+        .signature strong {
+            font-size: 23px;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            body {
+                padding: 70px 12px 30px;
+            }
+
+            .paper {
+                width: 100%;
+
+                padding:
+                    55px
+                    30px
+                    60px;
+            }
+
+            .letter {
+                font-size: 16px;
+
+                line-height: 1.8;
+            }
+
+            .title h1 {
+                font-size: 27px;
+            }
+
+            .happy-box,
+            .song,
+            .celebrate {
+                margin-left: 0;
+                margin-right: 0;
+
+                padding: 20px;
+            }
+
+            .back {
+                left: 15px;
+                top: 15px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- BACK BUTTON -->
+
+    <a href="letters.html" class="back">
+        ← Back to letters
+    </a>
+
+
+    <!-- PAPER -->
+
+    <div class="paper">
+
+
+        <!-- DECORATION -->
+
+        <div class="flower one">✿</div>
+        <div class="flower two">❀</div>
+        <div class="flower three">✿</div>
+        <div class="flower four">❀</div>
+
+        <div class="star one">✦</div>
+        <div class="star two">✧</div>
+
+
+        <!-- TITLE -->
+
+        <div class="small-title">
+            Open When...
+        </div>
+
+        <div class="title">
+            <h1>
+                You're Happyyy ❤️
+            </h1>
+        </div>
+
+
+        <!-- DATE -->
+
+        <div class="date">
+            September 30, 2026
+        </div>
+
+
+        <!-- LETTER -->
+
+        <div class="letter">
+
+
+            <p class="hello">
+                Hellllooooo Akkaaaaa ❤️
+            </p>
+
+
+            <p class="big">
+                You being Happyyy makes me Happyyyy. 🥹❤️
+            </p>
+
+
+            <p>
+                Whatever the thing is that made you happy,
+                I thank God for it.
+            </p>
+
+
+            <p>
+                And I pray that you get more and more and
+                <span class="bold">many, many more reasons to be happy</span>
+                your way.
+            </p>
+
+
+            <p>
+                I am so glad that you decided to celebrate
+                this happy moment with me.
+            </p>
+
+
+            <!-- HAPPY BOX -->
+
+            <div class="happy-box">
+
+                <div class="emoji">
+                    🥳 ✨ 💃🏻 🎉
+                </div>
+
+                <p>
+                    Whatever happened today...
+                </p>
+
+                <p class="bold">
+                    I'm happy because you're happy.
+                </p>
+
+            </div>
+
+
+            <p>
+                These are the days when life finally starts
+                sounding like that one song...
+            </p>
+
+
+            <!-- SONG -->
+
+            <div class="song">
+
+                <span class="song-title">
+                    🎵 Life's On!
+                </span>
+
+                <i>
+                    “Vaazahkai mella mella okay aanadhey
+Jodi vandhu ippo jolly aanadhey
+Bike rideu kuda happy aanadhe
+Kaalam vandhadhe gethu aanadhe.”
+                </i>
+
+                <br><br>
+
+                <span>
+                    Jolly days. Happy moments.
+                    Bike rides. Good news.
+                    Everything finally feeling a little lighter.
+                </span>
+
+            </div>
+
+
+            <p class="big">
+                Life's On. ✨
+            </p>
+
+
+            <p>
+                And we are so there.
+            </p>
+
+
+            <p>
+                I hope you enjoy these moments without worrying
+                about what comes next.
+            </p>
+
+
+            <p>
+                Just be happy.
+            </p>
+
+
+            <p>
+                Laugh a little louder.
+                Celebrate a little more.
+                Take too many pictures.
+                Eat something you love.
+                Go on that bike ride.
+                Listen to your favourite songs.
+            </p>
+
+
+            <p>
+                Do all the little things that make you think,
+                <span class="bold">"Life is actually pretty good." ❤️</span>
+            </p>
+
+
+            <!-- CELEBRATE -->
+
+            <div class="celebrate">
+
+                <div class="celebrate-title">
+                    ✨ Celebrate Everything ✨
+                </div>
+
+                <p>
+                    And please, please remember to celebrate
+                    even the smallest of victories.
+                </p>
+
+                <p>
+                    You don't have to wait for something huge
+                    to happen before you're allowed to be proud
+                    of yourself.
+                </p>
+
+                <p>
+                    Finished something difficult?
+                    <span class="bold">Celebrate it.</span>
+                </p>
+
+                <p>
+                    Survived a bad day?
+                    <span class="bold">Celebrate it.</span>
+                </p>
+
+                <p>
+                    Took one step towards something you've been
+                    working for?
+                    <span class="bold">Celebrate it.</span>
+                </p>
+
+                <p>
+                    Had a genuinely good day for no particular
+                    reason?
+                    <span class="bold">Definitely celebrate it.</span>
+                </p>
+
+            </div>
+
+
+            <p>
+                Because life isn't only about the huge
+                achievements we keep waiting for.
+            </p>
+
+
+            <p>
+                It's also about the tiny moments that make
+                an ordinary day feel special.
+            </p>
+
+
+            <p>
+                So if something made you smile today,
+                I hope you let yourself enjoy it fully.
+            </p>
+
+
+            <p>
+                Don't overthink it.
+                Don't immediately start worrying about
+                what comes next.
+            </p>
+
+
+            <p class="big">
+                Just be happy.
+            </p>
+
+
+            <p>
+                And if you ever feel guilty for being happy
+                while other things in life aren't perfect,
+                come back to this letter.
+            </p>
+
+
+            <p>
+                You are allowed to have happy days
+                even when life isn't perfect.
+            </p>
+
+
+            <p>
+                You are allowed to celebrate.
+            </p>
+
+
+            <p>
+                You are allowed to be excited.
+            </p>
+
+
+            <p>
+                You are allowed to enjoy the good things
+                when they come.
+            </p>
+
+
+            <p class="final">
+                So today, Akka...<br>
+                just be Happyyy. 🥹❤️
+            </p>
+
+
+            <p>
+                And whenever something wonderful happens,
+                even if it seems silly or small,
+                <span class="bold">come tell me.</span>
+            </p>
+
+
+            <p>
+                I want to hear about it.
+            </p>
+
+
+            <p>
+                I want to celebrate with you.
+            </p>
+
+
+            <p>
+                Because your happiness will always be
+                something worth celebrating for me too.
+            </p>
+
+
+            <p class="final">
+                Your happiness = My happiness. ❤️
+            </p>
+
+
+            <!-- SIGNATURE -->
+
+            <div class="signature">
+
+                With all my love,<br>
+
+                <strong>
+                    Sheryl ♡
+                </strong>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>
